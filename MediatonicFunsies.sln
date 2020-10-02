@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatonicFunsies.Common", "src\MediatonicFunsies.Common\MediatonicFunsies.Common.csproj", "{1E57A1FF-092E-4970-AB74-2BA94EAE6FF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatonicFunsies.UnitTest", "test\MediatonicFunsies.UnitTest\MediatonicFunsies.UnitTest.csproj", "{304E9BF9-5FF9-4467-8B76-4B7D11FC1F53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatonicFunsies.API", "src\MediatonicFunsies.API\MediatonicFunsies.API.csproj", "{48FBF85C-73FB-4C7B-8022-A99B44FD7224}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EF93CB30-7385-450C-B4E4-D83BD94E2B62}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E57A1FF-092E-4970-AB74-2BA94EAE6FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E57A1FF-092E-4970-AB74-2BA94EAE6FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E57A1FF-092E-4970-AB74-2BA94EAE6FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E57A1FF-092E-4970-AB74-2BA94EAE6FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{304E9BF9-5FF9-4467-8B76-4B7D11FC1F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304E9BF9-5FF9-4467-8B76-4B7D11FC1F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304E9BF9-5FF9-4467-8B76-4B7D11FC1F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304E9BF9-5FF9-4467-8B76-4B7D11FC1F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48FBF85C-73FB-4C7B-8022-A99B44FD7224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48FBF85C-73FB-4C7B-8022-A99B44FD7224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48FBF85C-73FB-4C7B-8022-A99B44FD7224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48FBF85C-73FB-4C7B-8022-A99B44FD7224}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F6DDC01-8402-4EB6-A6E0-6FC6529FF9FF}
+	EndGlobalSection
+EndGlobal
