@@ -24,3 +24,4 @@ Due to time constraint, I obviously couldn't do everything I'd have liked to do.
 * Add methods for deleting and modifying entities
 * More validations for the inputs
 * The metric object should not save the `value` in Redis. It could be improved where two separate objects can be used for saving into Redis and the response sent back to the client.
+* More comments
