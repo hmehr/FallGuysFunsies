@@ -19,6 +19,7 @@ The demo application dedicated to Mediatonic tech guys!
 ## How to run/debug
 * To run the appication go to the root folder of the application and do a `docker-compose build` followed by `docker-compose up`
 * To debug the application, Redis needs to be up and running. If `docker-compose up` is still running, then the application can just be run in debug mode and it should work
+* Please note that the host URL for debug mode is `http://localhost:5000` and for the run mode is `http://localhost:8081`
 
 ## Missing work
 Due to time constraint, I obviously couldn't do everything I'd have liked to do. I'd have liked to:
