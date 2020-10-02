@@ -5,7 +5,7 @@ The demo application dedicated to Mediatonic tech guys!
 * Docker is needed to spin up Redis
 * [Dotnet core runtime 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 * Visual Studio ideally to debug
-* An HTTP client to send requests to the application for testing purposes. I use [postman](https://www.postman.com/) 
+* An HTTP client to send requests to the application for testing purposes. I use [postman](https://www.postman.com/) and I have shared my collection [here](https://www.getpostman.com/collections/978d8fbd71c29e9a0e53).
 
 ## Assumptions
 * Each person can have 0 or more animals. An animal doesn't exist without a person.
