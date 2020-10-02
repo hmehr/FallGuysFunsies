@@ -4,6 +4,8 @@ The demo application dedicated to Mediatonic tech guys!
 ## Requirements
 * Docker is needed to spin up Redis
 * [Dotnet core runtime 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+* Visual Studio ideally to debug
+* An HTTP client to send requests to the application for testing purposes.
 
 ## Assumptions
 * Each person can have 0 or more animals. An animal doesn't exist without a person.
