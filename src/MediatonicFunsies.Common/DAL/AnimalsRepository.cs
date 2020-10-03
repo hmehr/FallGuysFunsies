@@ -30,13 +30,13 @@ namespace MediatonicFunsies.Common.DAL
         {
             //get the ids from ownership
             RedisValue[] animalIds = await _connection.GetDatabase().ListRangeAsync($"AnimalOwnership:{ownerId}");
-            _logger.LogDebug($"Animal ids found: {string.Join(',',animalIds)}");
+            _logger.LogDebug($"Animal ids found: {string.Join(',', animalIds)}");
 
             //convert to proper keys
             RedisKey[] arr = Array.ConvertAll(animalIds, x => new RedisKey($"Animals:{x}"));
 
             //get all the animal objects by their ids
-            RedisValue[] animals =await _connection.GetDatabase().StringGetAsync(arr);
+            RedisValue[] animals = await _connection.GetDatabase().StringGetAsync(arr);
 
             _logger.LogDebug($"Animals found: {animals?.Count() ?? 0}");
 
@@ -54,21 +54,31 @@ namespace MediatonicFunsies.Common.DAL
         {
             //We can use a transaction here
             await _connection.GetDatabase().StringSetAsync($"Animals:{animal.Id}", JsonSerializer.Serialize(animal));
-            await _connection.GetDatabase().ListRightPushAsync($"AnimalOwnership:{animal.Owner}",$"{animal.Id}");
+            await _connection.GetDatabase().ListRightPushAsync($"AnimalOwnership:{animal.Owner}", $"{animal.Id}");
         }
 
         public async Task DeleteAnimal(Guid ownerId, Guid animalId)
         {
             await _connection.GetDatabase().ListRemoveAsync($"AnimalOwnership:{ownerId}", $"{animalId}");
             await _connection.GetDatabase().KeyDeleteAsync($"Animals:{animalId}");
+            List<Metric> metrics = (await GetAllAnimalMetrics(animalId)).ToList();
+            IEnumerable<Task> tasks = metrics.Select(async m => await DeleteMetric(animalId, m.Id));
+
+            await Task.WhenAll(tasks);
         }
 
         public async Task AddMetric(Guid animalId, Metric metric)
         {
-            await _connection.GetDatabase().HashSetAsync($"Metrics:{animalId}", metric.Id.ToString(), JsonSerializer.Serialize(metric));
+            await _connection.GetDatabase().HashSetAsync($"Metrics:{animalId}", metric.Id.ToString(),
+                JsonSerializer.Serialize(metric));
         }
 
-        public async Task<Metric> GetMetric(Guid animalId, Guid metricId)
+        public async Task DeleteMetric(Guid animalId, Guid metricId)
+        {
+            await _connection.GetDatabase().HashDeleteAsync($"Metrics:{animalId}", metricId.ToString());
+        }
+
+    public async Task<Metric> GetMetric(Guid animalId, Guid metricId)
         {
             RedisValue metric = await _connection.GetDatabase().HashGetAsync($"Metrics:{animalId}", metricId.ToString());
             return metric.HasValue ? JsonSerializer.Deserialize<Metric>(metric) : null;
