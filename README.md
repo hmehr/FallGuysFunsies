@@ -24,7 +24,6 @@ The demo application dedicated to Mediatonic tech guys!
 ## Missing work
 Due to time constraint, I obviously couldn't do everything I'd have liked to do. I'd have liked to:
 * Add more unit tests, and ideally some end-to-end test
-* Add methods for deleting and modifying entities
 * More validations for the inputs
 * The metric object should not save the `value` in Redis. It could be improved where two separate objects can be used for saving into Redis and the response sent back to the client.
 * More comments
