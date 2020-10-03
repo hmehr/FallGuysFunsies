@@ -25,6 +25,16 @@ namespace MediatonicFunsies.Common.Logic
 
         }
 
+        public async Task DeleteAnimal(Guid animalId)
+        {
+            Animal animal = await _repository.GetAnimalById(animalId);
+            if (animal == null)
+            {
+                throw new ArgumentException($"Animal with id {animalId} doesn't exist");
+            }
+            await _repository.DeleteAnimal(animal.Owner, animalId);
+        }
+
         public async Task<Animal> GetAnimal(Guid id)
         {
             Animal animal = await _repository.GetAnimalById(id);

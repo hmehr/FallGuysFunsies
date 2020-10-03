@@ -43,6 +43,12 @@ namespace MediatonicFunsies.API.Controllers
             return await _animalService.GetAnimal(id);
         }
 
+        [HttpDelete("animals/{id}")]
+        public async Task DeleteAnimal([FromRoute] Guid id)
+        {
+            await _animalService.DeleteAnimal(id);
+        }
+
         [HttpGet("person/{ownerId}/animals")]
         public async Task<IEnumerable<Animal>> GetAnimalByOwnerId([FromRoute] Guid ownerId)
         {

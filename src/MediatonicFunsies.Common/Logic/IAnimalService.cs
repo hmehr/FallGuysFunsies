@@ -8,6 +8,7 @@ namespace MediatonicFunsies.Common.Logic
     public interface IAnimalService
     {
         Task AddAnimal(Animal animal);
+        Task DeleteAnimal(Guid animalId);
         Task<Animal> GetAnimal(Guid id);
         Task<IEnumerable<Animal>> GetAnimalByOwnerId(Guid ownerId);
         Task AddMetric(Guid animalId, Metric metric);

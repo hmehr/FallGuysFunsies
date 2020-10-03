@@ -57,6 +57,12 @@ namespace MediatonicFunsies.Common.DAL
             await _connection.GetDatabase().ListRightPushAsync($"AnimalOwnership:{animal.Owner}",$"{animal.Id}");
         }
 
+        public async Task DeleteAnimal(Guid ownerId, Guid animalId)
+        {
+            await _connection.GetDatabase().ListRemoveAsync($"AnimalOwnership:{ownerId}", $"{animalId}");
+            await _connection.GetDatabase().KeyDeleteAsync($"Animals:{animalId}");
+        }
+
         public async Task AddMetric(Guid animalId, Metric metric)
         {
             await _connection.GetDatabase().HashSetAsync($"Metrics:{animalId}", metric.Id.ToString(), JsonSerializer.Serialize(metric));

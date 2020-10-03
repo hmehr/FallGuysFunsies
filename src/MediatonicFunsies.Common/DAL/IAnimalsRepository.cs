@@ -16,6 +16,8 @@ namespace MediatonicFunsies.Common.DAL
 
         Task AddAnimal(Animal animal);
 
+        Task DeleteAnimal(Guid ownerId, Guid animalId);
+
         Task AddMetric(Guid animalId, Metric metric);
 
         Task AddMetricModifier(Guid animalId, Guid metricId, MetricModifier modifier);
