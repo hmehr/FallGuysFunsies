@@ -61,6 +61,12 @@ namespace MediatonicFunsies.API.Controllers
             await _animalService.AddMetric(animalId, metric);
         }
 
+        [HttpDelete("animals/{animalId}/metric/{metricId}")]
+        public async Task DeleteMetric([FromRoute] Guid metricId, [FromRoute] Guid animalId)
+        {
+            await _animalService.DeleteMetric(animalId, metricId);
+        }
+
         [HttpPost("animals/{animalId}/metric/{metricId}")]
         public async Task AddMetricModifier([FromRoute] Guid metricId, [FromRoute] Guid animalId, [FromBody] MetricModifier modifier)
         {

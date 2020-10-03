@@ -12,6 +12,7 @@ namespace MediatonicFunsies.Common.Logic
         Task<Animal> GetAnimal(Guid id);
         Task<IEnumerable<Animal>> GetAnimalByOwnerId(Guid ownerId);
         Task AddMetric(Guid animalId, Metric metric);
+        Task DeleteMetric(Guid metricId, Guid animalId);
         Task AddMetricModifier(Guid animalId, Guid metricId, MetricModifier modifier);
     }
 }

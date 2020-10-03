@@ -35,6 +35,22 @@ namespace MediatonicFunsies.Common.Logic
             await _repository.DeleteAnimal(animal.Owner, animalId);
         }
 
+        public async Task DeleteMetric(Guid metricId, Guid animalId)
+        {
+            Animal animal = await GetAnimal(animalId);
+            if (animal == null)
+            {
+                throw  new ArgumentException($"Animal doesn't exist with Id { animalId}");
+            }
+
+            if (animal.Metrics.All(m => m.Id != metricId))
+            {
+                throw new ArgumentException($"Animal doesn't have a metric {metricId}");
+            }
+
+            await _repository.DeleteMetric(animalId, metricId);
+        }
+
         public async Task<Animal> GetAnimal(Guid id)
         {
             Animal animal = await _repository.GetAnimalById(id);
